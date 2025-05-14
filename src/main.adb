@@ -16,7 +16,6 @@ procedure Main is
       Full_Storage   : Counting_Semaphore (Storage_Size, Default_Ceiling);
       Empty_Storage  : Counting_Semaphore (0, Default_Ceiling);
 
-
       Protected type Item_Manager_Type is
          procedure Increment;
          function Next_Item return Integer;
@@ -38,7 +37,6 @@ procedure Main is
 
       Item_Manager : Item_Manager_Type;
 
-
       task type Producer_Task_Type(Id : Positive; Items_To_Produce : Natural) is
       end Producer_Task_Type;
 
@@ -58,7 +56,6 @@ procedure Main is
             Empty_Storage.Release;
          end loop;
       end Producer_Task_Type;
-
 
       task type Consumer_Task_Type(Id : Positive; Items_To_Consume : Natural) is
       end Consumer_Task_Type;
@@ -88,30 +85,21 @@ procedure Main is
       Producers : Producer_Array(1 .. Producer_Count);
       Consumers : Consumer_Array(1 .. Consumer_Count);
 
-
       Items_Per_Producer : Integer := Total_Items / Producer_Count;
       Items_Per_Consumer : Integer := Total_Items / Consumer_Count;
 
    begin
       for I in Producers'Range loop
-         declare
-            Count : Integer := (if I = Producer_Count then Total_Items - Items_Per_Producer * (Producer_Count - 1)
-                                else Items_Per_Producer);
-         begin
-            Producers(I) := new Producer_Task_Type(I, Count);
-         end;
+         Producers(I) := new Producer_Task_Type(I, (if I = Producer_Count then Total_Items - Items_Per_Producer * (Producer_Count - 1)
+                                                   else Items_Per_Producer) );
       end loop;
 
       for I in Consumers'Range loop
-         declare
-            Count : Integer := (if I = Consumer_Count then Total_Items - Items_Per_Consumer * (Consumer_Count - 1)
-                                else Items_Per_Consumer);
-         begin
-            Consumers(I) := new Consumer_Task_Type(I, Count);
-         end;
+         Consumers(I) := new Consumer_Task_Type(I, (if I = Consumer_Count then Total_Items - Items_Per_Consumer * (Consumer_Count - 1)
+                                                   else Items_Per_Consumer) );
       end loop;
    end Starter;
 
 begin
-   Starter (3, 20, 2, 4);
+   Starter (3, 21, 2, 4);
 end Main;

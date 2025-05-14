@@ -43,7 +43,7 @@ RV STATIC_DISPATCH_TABLES
 RV MAX_TASKS=1+
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U main%b		main.adb		2052c0f8 NE OO SU
+U main%b		main.adb		134e71c8 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
@@ -110,7 +110,7 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20250514163902 d315eccc main%b
+D main.adb		20250514164550 e0095dfc main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
@@ -165,63 +165,61 @@ X 4 a-contai.ads
 X 7 a-cidlli.ads
 47k24*Indefinite_Doubly_Linked_Lists 413e50 28|4w21 8r32
 54R9 List<10|43R9> 28|13r17[8]
-154U14 Append 28|53s21[8]
-163U14 Delete_First 28|73s21[8]
-195V13 First_Element{string} 28|72s59[8]
+154U14 Append 28|51s21[8]
+163U14 Delete_First 28|70s21[8]
+195V13 First_Element{string} 28|69s59[8]
 X 12 a-iteint.ads
 24h9 Forward_Iterator
 32h9 Reversible_Iterator<24R9[7|76]>
 X 19 a-textio.ads
 58K13*Text_IO 725e16 28|1w10 2r9
-506U14*Put_Line 28|54s13 72s13
+506U14*Put_Line 28|52s13 69s13
 X 22 gnat.ads
 34K9*GNAT 57e9 28|1r19 2r18
 X 23 g-semaph.ads
 38K14*Semaphores 97e20 28|1w24 2r23
 40i4*Default_Ceiling{29|101I12} 28|15r47 16r58 17r47
 47W19*Counting_Semaphore 68e26 28|15r24 16r24 17r24
-58Y13 Seize 28|49s26 50s28 69s27 70s28
-63U17 Release 28|57s28 58s27 75s28 76s26
+58Y13 Seize 28|47s26 48s28 66s27 67s28
+63U17 Release 28|55s28 56s27 72s28 73s26
 X 28 main.adb
-7U11*Main 7b11 117l5 117t9
+7U11*Main 7b11 108l5 108t9
 8K12 String_Lists[7|47] 9r8
-11U14 Starter 11b14 11>23 11>50 12>23 12>52 113l8 113t15 116s4
+11U14 Starter 11b14 11>23 11>50 12>23 12>52 104l8 104t15 107s4
 11i23 Storage_Size{integer} 16r44
-11i50 Total_Items{integer} 92r39 93r39 98r60 107r60
-12i23 Producer_Count{integer} 88r39 92r53 98r40 98r96
-12i52 Consumer_Count{integer} 89r39 93r53 107r40 107r96
-13r7 Storage{7|54R9[8]} 53m13 53r13 72r74 73m13 73r13
-15w7 Access_Storage{23|47W19} 50r13 57r13 70r13 75r13
-16w7 Full_Storage{23|47W19} 49r13 76r13
-17w7 Empty_Storage{23|47W19} 58r13 69r13
-20W22 Item_Manager_Type 24E10 25l11 25e28 27b22 37l11 37t28 39r22
-21U20 Increment 28b20 31l14 31t23 55s26
-22V19 Next_Item{integer} 33b19 36l14 36t23 52s38
-24i10 Counter{integer} 30r13 30r24 35r20
-39w7 Item_Manager{20W22} 52r25 55r13
-42T17 Producer_Task_Type 42d36 42d51 43l11 43e29 45b17 60l11 60t29 82r38
-. 101r33
-42i36 Id{positive} 53r66 54r38
-42i51 Items_To_Produce{natural} 48r24
-46i10 Item_Num{integer} 52m13 53r39 54r65
-48i14 I{integer}
-63T17 Consumer_Task_Type 63d36 63d51 64l11 64e29 66b17 80l11 80t29 83r38
-. 110r33
-63i36 Id{positive} 72r38
-63i51 Items_To_Consume{natural} 68r24
-68i14 I{integer}
-82P12 Producer_Access(42T17) 85r59
-83P12 Consumer_Access(63T17) 86r59
-85A12 Producer_Array(82P12)<integer> 88r19
-86A12 Consumer_Array(83P12)<integer> 89r19
-88a7 Producers{85A12} 96r16 101m13
-89a7 Consumers{86A12} 105r16 110m13
-92i7 Items_Per_Producer{integer} 98r74 99r38
-93i7 Items_Per_Consumer{integer} 107r74 108r38
-96i11 I{integer} 98r36 101r23 101r52
-98i13 Count{integer} 101r55
-105i11 I{integer} 107r36 110r23 110r52
-107i13 Count{integer} 110r55
+11i50 Total_Items{integer} 88r39 89r39 95r77 101r80
+12i23 Producer_Count{integer} 85r39 88r53 95r57 95r113
+12i52 Consumer_Count{integer} 86r39 89r53 101r60 101r116
+13r7 Storage{7|54R9[8]} 51m13 51r13 69r74 70m13 70r13
+15w7 Access_Storage{23|47W19} 48r13 55r13 67r13 72r13
+16w7 Full_Storage{23|47W19} 47r13 73r13
+17w7 Empty_Storage{23|47W19} 56r13 66r13
+19W22 Item_Manager_Type 23E10 24l11 24e28 26b22 36l11 36t28 38r22
+20U20 Increment 27b20 30l14 30t23 53s26
+21V19 Next_Item{integer} 32b19 35l14 35t23 50s38
+23i10 Counter{integer} 29r13 29r24 34r20
+38w7 Item_Manager{19W22} 50r25 53r13
+40T17 Producer_Task_Type 40d36 40d51 41l11 41e29 43b17 58l11 58t29 79r38
+. 93r30
+40i36 Id{positive} 51r66 52r38
+40i51 Items_To_Produce{natural} 46r24
+44i10 Item_Num{integer} 50m13 51r39 52r65
+46i14 I{integer}
+60T17 Consumer_Task_Type 60d36 60d51 61l11 61e29 63b17 77l11 77t29 80r38
+. 101r30
+60i36 Id{positive} 69r38
+60i51 Items_To_Consume{natural} 65r24
+65i14 I{integer}
+79P12 Producer_Access(40T17) 82r59
+80P12 Consumer_Access(60T17) 83r59
+82A12 Producer_Array(79P12)<integer> 85r19
+83A12 Consumer_Array(80P12)<integer> 86r19
+85a7 Producers{82A12} 92r16 93m10
+86a7 Consumers{83A12} 100r16 101m10
+88i7 Items_Per_Producer{integer} 95r91 96r55
+89i7 Items_Per_Consumer{integer} 101r94 102r57
+92i11 I{integer} 93r20 94r49 95r53
+100i11 I{integer} 101r20 101r49 101r56
 X 29 system.ads
 67M9*Address
 100I12*Any_Priority{integer}
