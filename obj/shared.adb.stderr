@@ -1,0 +1,3 @@
+shared.adb:2:71: error: a generic package is not allowed in a use clause
+shared.adb:14:53: error: nonscalar 'Image is an Ada 2022 feature
+shared.adb:14:53: error: unit must be compiled with -gnat2022 switch
