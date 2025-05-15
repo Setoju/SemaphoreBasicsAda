@@ -32,6 +32,7 @@ RV NO_TASK_ALLOCATORS
 RV NO_TASK_HIERARCHY
 RV NO_TASKING
 RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
 RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
@@ -43,7 +44,7 @@ RV STATIC_DISPATCH_TABLES
 RV MAX_TASKS=1+
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U main%b		main.adb		134e71c8 NE OO SU
+U main%b		main.adb		14747dc8 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
@@ -58,7 +59,7 @@ W ada.strings%s		a-string.ads		a-string.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-Z ada.unchecked_deallocation%s
+W ada.unchecked_deallocation%s
 W gnat%s		gnat.ads		gnat.ali
 W gnat.semaphores%s	g-semaph.adb		g-semaph.ali
 Z system%s		system.ads		system.ali
@@ -110,7 +111,7 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20250514164550 e0095dfc main%b
+D main.adb		20250515110508 249bfd99 main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
@@ -157,69 +158,76 @@ D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D s-win32.ads		20210520051136 15ac53fb system.win32%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [main standard 7 11 none]
+G c Z b b [main standard 8 11 none]
 X 1 ada.ads
-16K9*Ada 20e8 28|1r6 2r5 4r6 5r5
+16K9*Ada 20e8 28|1r6 2r5 3r6 5r6 6r5 94r38 95r38
 X 4 a-contai.ads
-16K13*Containers 28e19 28|4r10 5r9
+16K13*Containers 28e19 28|5r10 6r9
 X 7 a-cidlli.ads
-47k24*Indefinite_Doubly_Linked_Lists 413e50 28|4w21 8r32
-54R9 List<10|43R9> 28|13r17[8]
-154U14 Append 28|51s21[8]
-163U14 Delete_First 28|70s21[8]
-195V13 First_Element{string} 28|69s59[8]
+47k24*Indefinite_Doubly_Linked_Lists 413e50 28|5w21 9r32
+54R9 List<10|43R9> 28|14r17[9]
+154U14 Append 28|51s21[9]
+163U14 Delete_First 28|72s21[9]
+195V13 First_Element{string} 28|71s62[9]
 X 12 a-iteint.ads
 24h9 Forward_Iterator
 32h9 Reversible_Iterator<24R9[7|76]>
 X 19 a-textio.ads
 58K13*Text_IO 725e16 28|1w10 2r9
-506U14*Put_Line 28|52s13 69s13
+506U14*Put_Line 28|52s13 71s13
+X 21 a-uncdea.ads
+20u15*Unchecked_Deallocation 28|3w10 94r42 95r42
 X 22 gnat.ads
 34K9*GNAT 57e9 28|1r19 2r18
 X 23 g-semaph.ads
 38K14*Semaphores 97e20 28|1w24 2r23
-40i4*Default_Ceiling{29|101I12} 28|15r47 16r58 17r47
-47W19*Counting_Semaphore 68e26 28|15r24 16r24 17r24
-58Y13 Seize 28|47s26 48s28 66s27 67s28
-63U17 Release 28|55s28 56s27 72s28 73s26
+40i4*Default_Ceiling{29|101I12} 28|16r47 17r58 18r47
+47W19*Counting_Semaphore 68e26 28|16r24 17r24 18r24
+58Y13 Seize 28|47s26 48s28 68s27 69s28
+63U17 Release 28|55s28 56s27 74s28 75s26
 X 28 main.adb
-7U11*Main 7b11 108l5 108t9
-8K12 String_Lists[7|47] 9r8
-11U14 Starter 11b14 11>23 11>50 12>23 12>52 104l8 104t15 107s4
-11i23 Storage_Size{integer} 16r44
-11i50 Total_Items{integer} 88r39 89r39 95r77 101r80
-12i23 Producer_Count{integer} 85r39 88r53 95r57 95r113
-12i52 Consumer_Count{integer} 86r39 89r53 101r60 101r116
-13r7 Storage{7|54R9[8]} 51m13 51r13 69r74 70m13 70r13
-15w7 Access_Storage{23|47W19} 48r13 55r13 67r13 72r13
-16w7 Full_Storage{23|47W19} 47r13 73r13
-17w7 Empty_Storage{23|47W19} 56r13 66r13
-19W22 Item_Manager_Type 23E10 24l11 24e28 26b22 36l11 36t28 38r22
-20U20 Increment 27b20 30l14 30t23 53s26
-21V19 Next_Item{integer} 32b19 35l14 35t23 50s38
-23i10 Counter{integer} 29r13 29r24 34r20
-38w7 Item_Manager{19W22} 50r25 53r13
-40T17 Producer_Task_Type 40d36 40d51 41l11 41e29 43b17 58l11 58t29 79r38
-. 93r30
-40i36 Id{positive} 51r66 52r38
-40i51 Items_To_Produce{natural} 46r24
-44i10 Item_Num{integer} 50m13 51r39 52r65
+8U11*Main 8b11 118l5 118t9
+9K12 String_Lists[7|47] 10r8
+12U14 Starter 12b14 12>23 12>50 13>23 13>52 114l8 114t15 117s4
+12i23 Storage_Size{integer} 17r44
+12i50 Total_Items{integer} 91r39 92r39 98r80 103r80
+13i23 Producer_Count{integer} 88r39 91r53 98r60 98r116
+13i52 Consumer_Count{integer} 89r39 92r53 103r60 103r116
+14r7 Storage{7|54R9[9]} 51m13 51r13 71r77 72m13 72r13
+16w7 Access_Storage{23|47W19} 48r13 55r13 69r13 74r13
+17w7 Full_Storage{23|47W19} 47r13 75r13
+18w7 Empty_Storage{23|47W19} 56r13 68r13
+20w17 Item_Manager 27b22 37l11 37t23 50r25 53r13
+21U20 Increment 28b20 31l14 31t23 53s26
+22V19 Next_Item{integer} 33b19 36l14 36t23 50s38
+24i10 Counter{integer} 30r13 30r24 35r20
+39T17 Producer_Task_Type 39d36 39d51 40l11 40e29 42b17 58l11 58t29 82r38
+. 94r65 98r30
+39i36 Id{positive} 44r42
+39i51 Items_To_Produce{natural} 46r24
+43i10 Item_Num{integer} 50m13 51r39 52r68
+44i10 My_Id{positive} 51r66 52r38
 46i14 I{integer}
-60T17 Consumer_Task_Type 60d36 60d51 61l11 61e29 63b17 77l11 77t29 80r38
-. 101r30
-60i36 Id{positive} 69r38
-60i51 Items_To_Consume{natural} 65r24
-65i14 I{integer}
-79P12 Producer_Access(40T17) 82r59
-80P12 Consumer_Access(60T17) 83r59
-82A12 Producer_Array(79P12)<integer> 85r19
-83A12 Consumer_Array(80P12)<integer> 86r19
-85a7 Producers{82A12} 92r16 93m10
-86a7 Consumers{83A12} 100r16 101m10
-88i7 Items_Per_Producer{integer} 95r91 96r55
-89i7 Items_Per_Consumer{integer} 101r94 102r57
-92i11 I{integer} 93r20 94r49 95r53
-100i11 I{integer} 101r20 101r49 101r56
+61T17 Consumer_Task_Type 61d36 61d51 62l11 62e29 64b17 79l11 79t29 83r38
+. 95r65 103r30
+61i36 Id{positive} 65r39
+61i51 Items_To_Consume{natural} 67r24
+65i10 My_Id{positive} 71r38
+67i14 I{integer}
+82P12 Producer_Access(39T17) 85r59 94r85
+83P12 Consumer_Access(61T17) 86r59 95r85
+85A12 Producer_Array(82P12)<integer> 88r19
+86A12 Consumer_Array(83P12)<integer> 89r19
+88a7 Producers{85A12} 97r16 98m10 107r16 108m24 108r24
+89a7 Consumers{86A12} 102r16 103m10 111r16 112m24 112r24
+91i7 Items_Per_Producer{integer} 98r94 99r57
+92i7 Items_Per_Consumer{integer} 103r94 104r57
+94U17 Free_Producer[21|20] 108s10
+95U17 Free_Consumer[21|20] 112s10
+97i11 I{integer} 98r20 98r49 98r56
+102i11 I{integer} 103r20 103r49 103r56
+107i11 I{integer} 108r34
+111i11 I{integer} 112r34
 X 29 system.ads
 67M9*Address
 100I12*Any_Priority{integer}
